@@ -21,7 +21,7 @@ const BioCard = styled.div`
     margin: 150px auto;
     padding: 25px;
     border: 1px solid black;
-    border-radius: 3px;
+    border-radius: 8px;
 `
 
 const BioInfo = styled.div`
@@ -41,6 +41,19 @@ const LinkList = ({className}) => {
     )
 }
 
+const StyledLinkList = styled(LinkList)`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    & > * {
+        font-size: 26px;
+        border: 1px solid gray;
+        padding: 15px;
+        border-radius: 8px;
+    }
+`
+
 const WelcomePage = () => {
     return (
         <div>
@@ -51,7 +64,7 @@ const WelcomePage = () => {
                     Bio information
                 </BioInfo>
             </ BioCard>
-            <LinkList />
+            <StyledLinkList />
         </div>
     )
 }

@@ -27,7 +27,23 @@ function App() {
           <Switch>
             <Route path="/works">
               <StyledHeader />
-              <Title>BLAH</Title>
+              <Title>Works</Title>
+            </Route>
+            <Route path="/tools">
+              <StyledHeader />
+              <Title>Tools</Title>
+            </Route>
+            <Route path="/blog">
+              <StyledHeader />
+              <Title>Blog</Title>
+            </Route>
+            <Route path="/inprogress">
+              <StyledHeader />
+              <Title>Works in Progress</Title>
+            </Route>
+            <Route path="/contact">
+              <StyledHeader />
+              <Title>Reach Me Here</Title>
             </Route>
             <Route path="/">
               <WelcomePage />

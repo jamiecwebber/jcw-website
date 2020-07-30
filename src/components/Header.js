@@ -13,13 +13,13 @@ const Header = ({ className }) => {
                 <Link to='/works'>
                     <NavItem>works</NavItem>
                 </Link>
-                <Link to='/works'>
+                <Link to='/tools'>
                     <NavItem>tools</NavItem>
                 </Link>
-                <Link to='/works'>
+                <Link to='/blog'>
                     <NavItem>blog</NavItem>
                 </Link>
-                <Link to='/works'>
+                <Link to='/inprogress'>
                     <NavItem>in progress</NavItem>
                 </Link>
                 <Link to='/contact'>
