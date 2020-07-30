@@ -1,20 +1,30 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { Link } from 'react-router-dom';
 
 
 const Header = ({ className }) => {
     return (
         <header className={className}>
-            <div>
+            <Link to='/'>
                 JAMIE CHRISTOPHER WEBBER
-            </div>
+            </Link>
             <StyledNav>
-                <NavItem>works</NavItem>
-                <NavItem>tools</NavItem>
-                <NavItem>blog</NavItem>
-                <NavItem>in progress</NavItem>
-                <NavItem>contact</NavItem>
+                <Link to='/works'>
+                    <NavItem>works</NavItem>
+                </Link>
+                <Link to='/works'>
+                    <NavItem>tools</NavItem>
+                </Link>
+                <Link to='/works'>
+                    <NavItem>blog</NavItem>
+                </Link>
+                <Link to='/works'>
+                    <NavItem>in progress</NavItem>
+                </Link>
+                <Link to='/contact'>
+                    <NavItem>contact</NavItem>
+                </Link>
             </StyledNav>
         </header>
     )
