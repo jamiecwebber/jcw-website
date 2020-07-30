@@ -10,6 +10,7 @@ const Title = styled.h1`
 `;
 
 const MainPage = styled.main`
+  margin: 0px;
   align: center;
   max-width: 1000px;
   margin: auto;
