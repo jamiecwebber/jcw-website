@@ -53,7 +53,7 @@ const StyledLinkList = styled(LinkList)`
 `
 
 const StyledPage = styled.div`
-    height: 100vh;
+    height: 600px;
     width: 900px;
     margin: 0px auto;
     display: flex;
