@@ -31,8 +31,9 @@ const Header = ({ className }) => {
   };
   
 const StyledHeader = styled(Header)`
-    margin: 0px;
-    padding:10px;
+    margin: 0rem -9999rem;
+    padding: 0.25rem 9999rem;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

@@ -13,10 +13,10 @@ const Title = styled.h1`
 `;
 
 const MainPage = styled.main`
-  margin: 0px;
+  margin: 0px auto 150px auto;
   align: center;
   max-width: 1000px;
-  margin: auto;
+  min-width: 600px;
 `;
 
 function App() {

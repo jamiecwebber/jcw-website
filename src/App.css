@@ -1,6 +1,7 @@
-body {
+html, body {
   margin: 0px;
   color: #444444;
+  overflow-x: hidden;
 }
 
 a {

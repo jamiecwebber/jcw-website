@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 const BigName = styled.h1`
     font: sans-serif;
-    margin-top: 50px;
 `
 
 const StyledPhoto = styled.img`
@@ -18,7 +17,6 @@ const BioCard = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: 150px auto;
     padding: 25px;
     border: 1px solid black;
     border-radius: 8px;
@@ -54,9 +52,16 @@ const StyledLinkList = styled(LinkList)`
     }
 `
 
+const StyledPage = styled.div`
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+`
+
 const WelcomePage = () => {
     return (
-        <div>
+        <StyledPage>
             <BigName>JAMIE CHRISTOPHER WEBBER</BigName>
             <BioCard>
                 <StyledPhoto src={coverPhoto} alt='JCW'></StyledPhoto>
@@ -65,7 +70,7 @@ const WelcomePage = () => {
                 </BioInfo>
             </ BioCard>
             <StyledLinkList />
-        </div>
+        </StyledPage>
     )
 }
 
