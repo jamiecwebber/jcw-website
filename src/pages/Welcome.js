@@ -54,6 +54,8 @@ const StyledLinkList = styled(LinkList)`
 
 const StyledPage = styled.div`
     height: 100vh;
+    width: 900px;
+    margin: 0px auto;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

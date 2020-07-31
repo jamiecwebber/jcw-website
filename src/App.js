@@ -3,8 +3,9 @@ import './App.css';
 import styled from 'styled-components'
 import { BrowserRouter as Router, Switch, Route, Link }  from 'react-router-dom';
 
-import { StyledHeader } from './components/Header.js';
+import { Header } from './components/Header.js';
 import WelcomePage from './pages/Welcome.js';
+import CTCalculator from './pages/CTCalculator.js';
 
 const Title = styled.h1`
   font-size: 1.5em;
@@ -12,44 +13,44 @@ const Title = styled.h1`
   color: palevioletred;
 `;
 
-const MainPage = styled.main`
-  margin: 0px auto 150px auto;
-  align: center;
-  max-width: 1000px;
-  min-width: 600px;
-`;
+// const MainPage = styled.main`
+//   margin: 0px auto 150px auto;
+//   align: center;
+//   max-width: 1000px;
+//   min-width: 600px;
+// `;
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <MainPage>
+        {/* <MainPage> */}
           <Switch>
             <Route path="/works">
-              <StyledHeader />
+              <Header />
               <Title>Works</Title>
             </Route>
             <Route path="/tools">
-              <StyledHeader />
-              <Title>Tools</Title>
+              <Header />
+              <CTCalculator />
             </Route>
             <Route path="/blog">
-              <StyledHeader />
+              <Header />
               <Title>Blog</Title>
             </Route>
             <Route path="/inprogress">
-              <StyledHeader />
+              <Header />
               <Title>Works in Progress</Title>
             </Route>
             <Route path="/contact">
-              <StyledHeader />
+              <Header />
               <Title>Reach Me Here</Title>
             </Route>
             <Route path="/">
               <WelcomePage />
             </Route>
           </Switch>
-        </MainPage>
+        {/* </MainPage> */}
       </Router>
     </div>
   );

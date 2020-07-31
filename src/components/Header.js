@@ -3,42 +3,50 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 
+
+
 const Header = ({ className }) => {
     return (
-        <header className={className}>
-            <Link to='/'>
-                JAMIE CHRISTOPHER WEBBER
-            </Link>
-            <StyledNav>
-                <Link to='/works'>
-                    <NavItem>works</NavItem>
+        <StyledHeader>
+            <HeaderBody>
+                <Link to='/'>
+                    JAMIE CHRISTOPHER WEBBER
                 </Link>
-                <Link to='/tools'>
-                    <NavItem>tools</NavItem>
-                </Link>
-                <Link to='/blog'>
-                    <NavItem>blog</NavItem>
-                </Link>
-                <Link to='/inprogress'>
-                    <NavItem>in progress</NavItem>
-                </Link>
-                <Link to='/contact'>
-                    <NavItem>contact</NavItem>
-                </Link>
-            </StyledNav>
-        </header>
+                <StyledNav>
+                    <Link to='/works'>
+                        <NavItem>works</NavItem>
+                    </Link>
+                    <Link to='/tools'>
+                        <NavItem>tools</NavItem>
+                    </Link>
+                    <Link to='/blog'>
+                        <NavItem>blog</NavItem>
+                    </Link>
+                    <Link to='/inprogress'>
+                        <NavItem>in progress</NavItem>
+                    </Link>
+                    <Link to='/contact'>
+                        <NavItem>contact</NavItem>
+                    </Link>
+                </StyledNav>
+            </HeaderBody>
+        </StyledHeader>
     )
   };
   
-const StyledHeader = styled(Header)`
-    margin: 0rem -9999rem;
-    padding: 0.25rem 9999rem;
-    width: 100%;
+const StyledHeader = styled.header`
+    background-color: #dddddd;
+    padding: 0.6em;
+    display: flex;
+    justify-content: center;
+`;
+
+const HeaderBody = styled.header`
+    width: 900px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: #dddddd;
-`;
+`
 
 const StyledNav = styled.nav`
     display: flex;
@@ -53,4 +61,4 @@ const NavItem = styled.div`
     } 
 `
 
-export { StyledHeader };
+export { Header };
