@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 
-
-
 const Header = ({ className }) => {
     return (
         <StyledHeader>
@@ -52,6 +50,7 @@ const StyledNav = styled.nav`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    white-space: nowrap;
 `
 
 const NavItem = styled.div`
