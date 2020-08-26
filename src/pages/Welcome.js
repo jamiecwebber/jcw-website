@@ -68,7 +68,7 @@ const WelcomePage = () => {
             <BioCard>
                 <StyledPhoto src={coverPhoto} alt='JCW'></StyledPhoto>
                 <BioInfo>
-                    Bio information
+                    This site is a work in progress and is not intended to be viewed by the public yet! Everything in due time.
                 </BioInfo>
             </ BioCard>
             <StyledLinkList />
