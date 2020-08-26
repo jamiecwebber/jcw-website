@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route, Link }  from 'react-router-dom'
 import { Header } from './components/Header.js';
 import WelcomePage from './pages/Welcome.js';
 import CTCalculator from './pages/CTCalculator.js';
+import BlogPage from './pages/BlogPage.js';
 
 const Title = styled.h1`
   font-size: 1.5em;
@@ -35,8 +36,7 @@ function App() {
               <CTCalculator />
             </Route>
             <Route path="/blog">
-              <Header />
-              <Title>Blog</Title>
+              <BlogPage />
             </Route>
             <Route path="/inprogress">
               <Header />
