@@ -36,6 +36,7 @@ function App() {
               <CTCalculator />
             </Route>
             <Route path="/blog">
+              <Header />
               <BlogPage />
             </Route>
             <Route path="/inprogress">

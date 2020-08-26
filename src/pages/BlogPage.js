@@ -8,29 +8,28 @@ const Page = styled.div`
 
 const Title = styled.h1`
     position: relative;
-    top: 50px;
+    top: 30px;
     left: 50px;
-    color: black;
+    color: rgba(1,1,1,0.7);
     font-family: sans-serif;
-    font-size: 65px;
+    font-size: 75px;
     margin-bottom: 0px;
 `
 
 const Slogan = styled.h2`
     position: absolute;
-    top: 35px;
-    right: 50px;
-    color: silver;
+    top: 45px;
+    right: 80px;
+    color: rgba(1,1,1,0.15);
     font-family: sans-serif;
-    font-size: 50px;
+    font-size: 55px;
     z-index: -1;
-    text-wrap: none;
 `
 
 const Paragraph = styled.div`
     position: relative;
     top: 85px;
-    color: black;
+    color: color: rgba(1,1,1,0.9);
     font-family: sans-serif;
     font-size: 22px;
     padding-top: 0px;
@@ -44,7 +43,7 @@ const BlogPage = () => {
             <Title>Solipsism and Lunacy</Title>
             <Slogan>a healthy outlet for male anger</Slogan>
             <Paragraph>
-                Hi, welcome to my blog page. My name's Jamie, I do music and have some pretty passionate opinions about a few things. This page exists for me to put my thoughts into words and try to get to the bottom of a few things. I hope you find what I have to say somewhat interesting and I'm happy to talk about whatever it may be, lord knows that sometimes it's nice to get out of the bubble. So, enjoy, I guess, if you're the sort of person who reads these things.
+                Hi, welcome to my blog page. My name's Jamie, I do music and have some pretty passionate opinions about a few things. This page exists for me to put my thoughts into words and try to get to the bottom of some of the ideas that eat away at me. I hope you find what I have to say somewhat interesting and I'm happy to talk about whatever it may be, lord knows that sometimes it's nice to get out of the bubble. So, enjoy, I guess, if you're the sort of person who reads these things.
             </Paragraph>
             <Paragraph>
                 I try to live my life with good intentions, and just like everything else in the universe the way I interact with things and what I believe is ever-unfolding. I think that there's a profound beauty in sadness, and a profound sadness about beauty, and that, well, like, what is melancholy is somehow more real sometimes. But also I'm trying to find what is joyous and energetic as well, and so much of our lives just has to do with how we channel our own energies.
