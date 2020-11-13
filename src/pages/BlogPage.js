@@ -41,25 +41,6 @@ const Paragraph = styled.div`
 
 
 
-// const PinkRectangle = styled.div`
-//     background-color: lightpink;
-//     position: absolute;
-//     right: 0px;
-//     top: 60px;
-//     width: 28%;
-//     height: 26px;
-// `
-
-// const OrangeRectangle = styled.div`
-//     background-color: #fac589;
-//     position: absolute;
-//     right: 0px;
-//     top: 60px;
-//     width: 28%;
-//     height: 3px;
-//     margin-top: 42px;
-// `
-
 const BlogPage = () => {
 
     
@@ -68,8 +49,6 @@ const BlogPage = () => {
     return (
         <Page>
             <Rectangles />
-            {/* <PinkRectangle></PinkRectangle>
-            <OrangeRectangle></OrangeRectangle> */}
             <Title>Solipsism and Lunacy</Title>
             <Slogan>balancing structure and subjectivity</Slogan> {/*a healthy outlet for male anger */}
             <Paragraph>

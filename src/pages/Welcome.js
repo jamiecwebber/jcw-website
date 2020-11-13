@@ -20,30 +20,10 @@ const Background = styled.div`
 
 
 
-// const PinkRectangle = styled.div`
-//     background-color: lightpink;
-//     position: absolute;
-//     right: 0px;
-//     top: 60px;
-//     width: 28%;
-//     height: 26px;
-// `
-
-// const OrangeRectangle = styled.div`
-//     background-color: #fac589;
-//     position: absolute;
-//     right: 0px;
-//     top: 60px;
-//     width: 28%;
-//     height: 3px;
-//     margin-top: 42px;
-// `
-
-
 const Name = styled.h1`
     font-size: max(1.5em, 4vw);
     position: relative;
-    top: -4%;
+    top: -16px;
     left: -10%;
     color: lightseagreen;
     margin-bottom: 3%;
@@ -99,8 +79,6 @@ const WelcomePage = () => {
     return (
         <React.Fragment>
             <Rectangles />
-            {/* <PinkRectangle></PinkRectangle>
-            <OrangeRectangle></OrangeRectangle> */}
             <Background img={greyTexture}>
                 <Name>jamie christopher webber </Name>
                 
