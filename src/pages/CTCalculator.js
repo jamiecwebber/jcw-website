@@ -11,6 +11,7 @@ const CTWindow = styled.div`
 const CTCalculator = () => {
     return (
         <CTWindow>
+            This page is a work in progress :)
             {/* controls at top left */}
             {/* actual display grid */}
         </CTWindow>

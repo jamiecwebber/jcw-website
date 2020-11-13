@@ -28,23 +28,23 @@ function App() {
         {/* <MainPage> */}
           <Switch>
             <Route path="/works">
-              <Header />
-              <Title>Works</Title>
+              {/* <Header /> */}
+              <Title>Coming soon!</Title>
             </Route>
             <Route path="/tools">
-              <Header />
+              {/* <Header /> */}
               <CTCalculator />
             </Route>
             <Route path="/blog">
-              <Header />
+              {/* <Header /> */}
               <BlogPage />
             </Route>
             <Route path="/inprogress">
-              <Header />
+              {/* <Header /> */}
               <Title>Works in Progress</Title>
             </Route>
             <Route path="/contact">
-              <Header />
+              {/* <Header /> */}
               <Title>Reach Me Here</Title>
             </Route>
             <Route path="/">

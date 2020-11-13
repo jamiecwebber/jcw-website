@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Noto+Sans+HK&display=swap');
 
 html, body {
   margin: 0px;
@@ -7,7 +7,6 @@ html, body {
 
 a {
   text-decoration: none;
-  color: black;
 }
 
 .App {
