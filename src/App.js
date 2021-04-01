@@ -18,6 +18,7 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
   html {
     font-family: 'EB Garamond', sans-serif;
+    background-color: honeydew;
   }
 `
 

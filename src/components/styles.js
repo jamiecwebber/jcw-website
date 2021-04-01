@@ -12,15 +12,26 @@ import styled from 'styled-components';
 //     cursor: url(${props => props.cursor}),auto;
 // `
 
-export const Background = styled.div`
+export const BackgroundImage = styled.div`
     background-image: url(${props => props.img});
     background-repeat: true;
-    top: 6vh;
-    min-height: 74vh;
-    width: 75vw;
-    margin: 9vh auto;
-    padding: 4vh;
+    padding: 6vh;
 `
+
+export const PageFrame = styled.div`
+    padding: 6vh 15vw;
+    width: 70vw;
+`
+
+// export const Background = styled.div`
+//     background-image: url(${props => props.img});
+//     background-repeat: true;
+//     top: 6vh;
+//     min-height: 74vh;
+//     width: 75vw;
+//     margin: 9vh auto;
+//     padding: 4vh;
+// `
 
 export const Title = styled.h1`
   font-size: 1.5em;
