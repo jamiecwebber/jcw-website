@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom'
 
@@ -54,7 +54,7 @@ const LinkHolder = styled.div`
 `
 
 const WelcomePage = () => {
-    const { audioContextRef } = useAudio();
+    const audioContext = useAudio();
 
     return (
         <React.Fragment>
@@ -62,7 +62,7 @@ const WelcomePage = () => {
             <PageFrame>
                 <BackgroundImage img={greyTexture}>
                     <Name>jamie christopher webber</Name>
-                    <button onClick={()=>{audioContextRef.current.close()}}>Stop sounds</button>
+                    <button onClick={()=>{audioContext.close()}}>Stop sounds</button>
                     <div>
                         <Photo src={coverPhoto} alt="jcw"></Photo>
                         <div>

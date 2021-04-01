@@ -8,32 +8,33 @@ const PitchPlayer = () => {
     const [frequency, setFrequency] = useState(220);
     const [volume, setVolume] = useState(50);
 
-    const { audioContextRef } = useAudio();
+    const audioContext = useAudio();
 
     // const { audioContextRef } = audioContextRef.current;
-    const oscillator = useRef(audioContextRef.current.createOscillator());
-    const gainNode = useRef(audioContextRef.current.createGain());
+    console.log(audioContext);
+    const oscillator = useRef(audioContext.createOscillator());
+    const gainNode = useRef(audioContext.createGain());
 
     useEffect(() => {
         oscillator.current.connect(gainNode.current);
-        gainNode.current.connect(audioContextRef.current.destination);
+        gainNode.current.connect(audioContext.destination);
         oscillator.current.start();
-        // const osc = oscillator.current;
-        // return () => { osc.stop(); }
-    }, []);
+        const osc = oscillator.current;
+        return () => { osc.stop(); }
+    }, [audioContext]);
 
     useEffect(() => {
-        gainNode.current.gain.setValueAtTime(volume / 100, audioContextRef.current.currentTime);
+        gainNode.current.gain.setValueAtTime(volume / 100, audioContext.currentTime);
 
         oscillator.current.type = 'triangle';
-        oscillator.current.frequency.setValueAtTime(frequency, audioContextRef.current.currentTime); // value in hertz
+        oscillator.current.frequency.setValueAtTime(frequency, audioContext.currentTime); // value in hertz
 
-    }, [frequency, volume]);
+    }, [frequency, volume, audioContext]);
 
     return (
         <PageFrame>
-            <input type="range" min="1" max="2200" value={frequency} class="slider" id="frequencySlider" onChange={(e)=>{setFrequency(e.target.value)}}></input>
-            <input type="range" min="1" max="100" value={volume} class="slider" id="volumeSlider" onChange={(e)=>{setVolume(e.target.value)}}></input>
+            <input type="range" min="1" max="2200" value={frequency} className="slider" id="frequencySlider" onChange={(e)=>{setFrequency(e.target.value)}}></input>
+            <input type="range" min="1" max="100" value={volume} className="slider" id="volumeSlider" onChange={(e)=>{setVolume(e.target.value)}}></input>
         </PageFrame>
     );
 }
