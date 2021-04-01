@@ -40,11 +40,8 @@ const Paragraph = styled.div`
     max-width: 800px;
 `
 
-
-
 const BlogPage = () => {
 
-    
     document.body.style.backgroundColor = "ghostwhite";
 
     return (

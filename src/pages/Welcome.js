@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom'
 
 import Rectangles from '../components/Rectangles';
@@ -7,16 +7,7 @@ import Rectangles from '../components/Rectangles';
 import coverPhoto from '../images/jamie.jpg';
 import greyTexture from '../images/greyTexture.jpg';
 
-const Background = styled.div`
-    background-image: url(${props => props.img});
-    background-repeat: true;
-    font-family: 'EB Garamond', serif;
-    top: 6vh;
-    min-height: 74vh;
-    width: 75vw;
-    margin: 9vh auto;
-    padding: 4vh;
-`
+import { Background } from '../components/styles'
 
 const Name = styled.h1`
     font-size: max(1.5em, 4vw);
