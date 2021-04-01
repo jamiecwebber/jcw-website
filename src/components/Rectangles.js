@@ -8,24 +8,23 @@ position: absolute;
 right: 0px;
 top: 97px;
 width: 28%;
-height: 26px;
+height: 42px;
 `
 
-const OrangeRectangle = styled.div`
-background-color: #fac589;
-position: absolute;
-right: 0px;
-top: 97px;
-width: 28%;
-height: 3px;
-margin-top: 42px;
-`
+// const OrangeRectangle = styled.div`
+// background-color: #fac589;
+// position: absolute;
+// right: 0px;
+// top: 97px;
+// width: 28%;
+// height: 3px;
+// margin-top: 42px;
+// `
 
 const Rectangles = () => {
     return (
         <React.Fragment>
             <PinkRectangle />
-            <OrangeRectangle />
         </React.Fragment>
     )
 }

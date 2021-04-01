@@ -7,16 +7,9 @@ import Rectangles from '../components/Rectangles';
 import coverPhoto from '../images/jamie.jpg';
 import greyTexture from '../images/greyTexture.jpg';
 
-import { BackgroundImage, PageFrame } from '../components/styles'
+import { BackgroundImage, PageFrame, Name } from '../components/styles'
 
-const Name = styled.h1`
-    font-size: max(1.5em, 4vw);
-    position: relative;
-    top: -16px;
-    left: -10%;
-    color: lightseagreen;
-    margin-bottom: 3%;
-`
+
 
 const WelcomeText = styled.div`
     padding-right: 8%;
@@ -24,7 +17,6 @@ const WelcomeText = styled.div`
 `
 
 const Links = styled.div`
-    padding-right: 8%;
     font-size: 1.5em;
     display: flex;
     justify-content: space-around;
@@ -59,6 +51,7 @@ const LinkHolder = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-bottom: 2vw;
 `
 
 const WelcomePage = () => {

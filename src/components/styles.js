@@ -14,8 +14,7 @@ import styled from 'styled-components';
 
 export const BackgroundImage = styled.div`
     background-image: url(${props => props.img});
-    background-repeat: true;
-    padding: 6vh;
+    background-repeat: round;
 `
 
 export const PageFrame = styled.div`
@@ -23,15 +22,11 @@ export const PageFrame = styled.div`
     width: 70vw;
 `
 
-// export const Background = styled.div`
-//     background-image: url(${props => props.img});
-//     background-repeat: true;
-//     top: 6vh;
-//     min-height: 74vh;
-//     width: 75vw;
-//     margin: 9vh auto;
-//     padding: 4vh;
-// `
+export const Name = styled.h1`
+    padding: 2vw 0vw 0vw 3vw;
+    font-size: max(1.5em, 4vw);
+    color: lightseagreen;
+`
 
 export const Title = styled.h1`
   font-size: 1.5em;
