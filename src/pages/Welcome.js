@@ -8,7 +8,7 @@ import coverPhoto from '../images/jamie.jpg';
 import greyTexture from '../images/greyTexture.jpg';
 
 import { BackgroundImage, PageFrame, Name } from '../components/styles'
-import { AudioContext } from '../contexts/AudioContext'
+import { useAudio } from '../contexts/AudioContext'
 
 const WelcomeText = styled.div`
     padding-right: 8%;
@@ -54,14 +54,14 @@ const LinkHolder = styled.div`
 `
 
 const WelcomePage = () => {
-    const { audioContextRef } = useContext(AudioContext);
+    const { audioContextRef } = useAudio();
 
     return (
         <React.Fragment>
             <Rectangles />
             <PageFrame>
                 <BackgroundImage img={greyTexture}>
-                    <Name>jamie webber</Name>
+                    <Name>jamie christopher webber</Name>
                     <button onClick={()=>{audioContextRef.current.close()}}>Stop sounds</button>
                     <div>
                         <Photo src={coverPhoto} alt="jcw"></Photo>

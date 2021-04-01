@@ -1,14 +1,14 @@
-import React, { useEffect, useState, useRef, useContext } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 // import styled from 'styled-components';
 import { PageFrame } from '../components/styles'
-import { AudioContext } from '../contexts/AudioContext';
+import { useAudio } from '../contexts/AudioContext';
 
 
 const PitchPlayer = () => {
     const [frequency, setFrequency] = useState(220);
     const [volume, setVolume] = useState(50);
 
-    const { audioContextRef } = useContext(AudioContext);
+    const { audioContextRef } = useAudio();
 
     // const { audioContextRef } = audioContextRef.current;
     const oscillator = useRef(audioContextRef.current.createOscillator());

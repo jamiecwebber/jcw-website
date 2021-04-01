@@ -12,4 +12,6 @@ const AudioContextProvider = (props) => {
     )
 }
 
-export { AudioContext, AudioContextProvider }
+export function useAudio() {return React.useContext(AudioContext)};
+
+export { AudioContextProvider }
