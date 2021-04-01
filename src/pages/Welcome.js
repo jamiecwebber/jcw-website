@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom'
 
@@ -8,7 +8,7 @@ import coverPhoto from '../images/jamie.jpg';
 import greyTexture from '../images/greyTexture.jpg';
 
 import { BackgroundImage, PageFrame, Name } from '../components/styles'
-import { useAudio } from '../contexts/AudioContext'
+import { useAudio, useAudioRef } from '../contexts/AudioContext'
 
 const WelcomeText = styled.div`
     padding-right: 8%;
@@ -53,8 +53,18 @@ const LinkHolder = styled.div`
     padding-bottom: 2vw;
 `
 
+
 const WelcomePage = () => {
+    console.log("render welcome page");
     const audioContext = useAudio();
+    const audioContextRef = useAudioRef();
+
+    const resetAudio = () =>
+    {
+        console.log('click!')
+        audioContextRef.current.close();
+        audioContextRef.current = new window.AudioContext();
+    }
 
     return (
         <React.Fragment>
@@ -62,7 +72,7 @@ const WelcomePage = () => {
             <PageFrame>
                 <BackgroundImage img={greyTexture}>
                     <Name>jamie christopher webber</Name>
-                    <button onClick={()=>{audioContext.close()}}>Stop sounds</button>
+                    <button onClick={()=>{resetAudio()}}>Stop sounds</button>
                     <div>
                         <Photo src={coverPhoto} alt="jcw"></Photo>
                         <div>

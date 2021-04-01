@@ -5,30 +5,31 @@ import { useAudio } from '../contexts/AudioContext';
 
 
 const PitchPlayer = () => {
+    
+    console.log('render pitchplayer');
     const [frequency, setFrequency] = useState(220);
     const [volume, setVolume] = useState(50);
 
     const audioContext = useAudio();
 
-    // const { audioContextRef } = audioContextRef.current;
-    console.log(audioContext);
     const oscillator = useRef(audioContext.createOscillator());
     const gainNode = useRef(audioContext.createGain());
 
     useEffect(() => {
+        console.log("first useEffect");
+        oscillator.current.type = 'triangle';
         oscillator.current.connect(gainNode.current);
         gainNode.current.connect(audioContext.destination);
         oscillator.current.start();
-        const osc = oscillator.current;
-        return () => { osc.stop(); }
+        // const osc = oscillator.current;
+        // return () => { osc.stop(); }
     }, [audioContext]);
 
     useEffect(() => {
         gainNode.current.gain.setValueAtTime(volume / 100, audioContext.currentTime);
 
-        oscillator.current.type = 'triangle';
         oscillator.current.frequency.setValueAtTime(frequency, audioContext.currentTime); // value in hertz
-
+        console.log("second useEffect");
     }, [frequency, volume, audioContext]);
 
     return (
