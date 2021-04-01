@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 
 const AudioContext = React.createContext([{}, () => {}]);
 
-const AudioContextProvider = (props) => {
+export const AudioContextProvider = (props) => {
     const audioContextRef = useRef(new window.AudioContext());
     // const [audioRefState, setAudioRefState] = useState(audioContextRef);
 
@@ -21,8 +21,19 @@ export function useAudio() {
 export function useAudioRef() {
     const audioContextRef = React.useContext(AudioContext);
     return audioContextRef;
-    // audioContextRef.current.close();
-    // audioContextRef.current = new window.AudioContext();
 }
 
-export { AudioContextProvider }
+export const AudioPanicButton = (props) => {
+    const audioContextRef = React.useContext(AudioContext);
+
+    const resetAudio = () =>
+    {
+        console.log('You clicked the panic button!')
+        audioContextRef.current.close();
+        audioContextRef.current = new window.AudioContext();
+    }
+
+    return (
+        <button onClick={()=>{resetAudio()}}>{props.children}</button>
+    )
+}

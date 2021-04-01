@@ -8,7 +8,7 @@ import coverPhoto from '../images/jamie.jpg';
 import greyTexture from '../images/greyTexture.jpg';
 
 import { BackgroundImage, PageFrame, Name } from '../components/styles'
-import { useAudio, useAudioRef } from '../contexts/AudioContext'
+import { useAudio, useAudioRef, AudioPanicButton } from '../contexts/AudioContext'
 
 const WelcomeText = styled.div`
     padding-right: 8%;
@@ -59,12 +59,12 @@ const WelcomePage = () => {
     const audioContext = useAudio();
     const audioContextRef = useAudioRef();
 
-    const resetAudio = () =>
-    {
-        console.log('click!')
-        audioContextRef.current.close();
-        audioContextRef.current = new window.AudioContext();
-    }
+    // const resetAudio = () =>
+    // {
+    //     console.log('click!')
+    //     audioContextRef.current.close();
+    //     audioContextRef.current = new window.AudioContext();
+    // }
 
     return (
         <React.Fragment>
@@ -72,7 +72,8 @@ const WelcomePage = () => {
             <PageFrame>
                 <BackgroundImage img={greyTexture}>
                     <Name>jamie christopher webber</Name>
-                    <button onClick={()=>{resetAudio()}}>Stop sounds</button>
+                    {/* <button onClick={()=>{resetAudio()}}>Stop sounds</button> */}
+                    <AudioPanicButton>End Sounds!</AudioPanicButton>
                     <div>
                         <Photo src={coverPhoto} alt="jcw"></Photo>
                         <div>
