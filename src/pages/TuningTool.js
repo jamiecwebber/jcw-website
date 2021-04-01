@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
+import { PageFrame } from '../components/styles'
 
 const PitchPlayer = () => {
     const [frequency, setFrequency] = useState(220);
@@ -13,6 +14,8 @@ const PitchPlayer = () => {
         oscillator.current.connect(gainNode.current);
         gainNode.current.connect(audioCtx.current.destination);
         oscillator.current.start();
+        const osc = oscillator.current;
+        return () => { osc.stop(); }
     }, []);
 
     useEffect(() => {
@@ -24,10 +27,10 @@ const PitchPlayer = () => {
     }, [frequency, volume]);
 
     return (
-        <div>
+        <PageFrame>
             <input type="range" min="1" max="2200" value={frequency} class="slider" id="frequencySlider" onChange={(e)=>{setFrequency(e.target.value)}}></input>
             <input type="range" min="1" max="100" value={volume} class="slider" id="volumeSlider" onChange={(e)=>{setVolume(e.target.value)}}></input>
-        </div>
+        </PageFrame>
     );
 }
 

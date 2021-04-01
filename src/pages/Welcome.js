@@ -62,7 +62,7 @@ const WelcomePage = () => {
             <Rectangles />
             <PageFrame>
                 <BackgroundImage img={greyTexture}>
-                    <Name>jamie christopher webber </Name>
+                    <Name>jamie webber</Name>
                     
                     <div>
                         <Photo src={coverPhoto} alt="jcw"></Photo>
