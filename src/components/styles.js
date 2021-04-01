@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import styled from 'styled-components';
 
 // const Background = styled.div`
@@ -15,15 +15,18 @@ import styled from 'styled-components';
 export const BackgroundImage = styled.div`
     background-image: url(${props => props.img});
     background-repeat: round;
+    height: 100%;
+    width: 100%;
 `
 
 export const PageFrame = styled.div`
     padding: 6vh 15vw;
     width: 70vw;
+    height: 84vh;
 `
 
-export const Name = styled.h1`
-    padding: 2vw 0vw 0vw 3vw;
+export const Name = styled.div`
+    padding: 2vw 0vw 2vw 3vw;
     font-size: max(1.5em, 4vw);
     color: lightseagreen;
 `

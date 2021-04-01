@@ -3,7 +3,7 @@ import './App.css';
 // import styled from 'styled-components'
 
 
-import { BrowserRouter as Router, Switch, Route, Link }  from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route}  from 'react-router-dom';
 
 import WelcomePage from './pages/Welcome.js';
 // import CTCalculator from './pages/CTCalculator.js';
