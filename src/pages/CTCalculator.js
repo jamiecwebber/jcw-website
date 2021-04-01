@@ -1,26 +1,69 @@
 import React, { useState, useEffect } from 'react';
 import * as Tone from 'tone';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 import { PageFrame } from '../components/styles';
+import { Link } from 'react-router-dom';
 import { useAudio, AudioPanicButton } from '../contexts/AudioContext'
 
 
-// const CTCalculator = () => {
-//     const audioContext = useAudio();
-
-//     return (
-//         <>
-//             <PageFrame>
-//                 Goal for this page is to port in the ct grid from codepen
-//                 {/* controls at top left */}
-//                 {/* actual display grid */}
-//             </PageFrame>
-//         </>
-//     )
-// }
-
-// export default CTCalculator
-
+const CSSWrapper = styled.div`
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+  
+  .controls {
+    margin: 1rem;
+    padding: 3rem;
+  }
+  
+  input {
+    margin: 3px;
+  }
+  
+  .chime {
+    margin: 2px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    height: 4rem;
+    width: 4rem;
+  }
+  
+  .noteContainer {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+  }
+  .frequency {
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+  .note {
+    grid-column: 1;
+    grid-row: 2 / 4;
+    font-size: 1.6em;
+    justify-self: end;
+  }
+  .cents {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .octave {
+    grid-column: 2;
+    grid-row: 3;
+    font-size: 1.2em;
+  }
+  
+  .gridRow {
+    display: inline-block;
+  /*   grid-template-rows = 1fr;
+    grid-template-colums = repeat(8, 4rem);
+    grid-auto-flow: column; */
+    
+    height: min-content;
+    width: min-content;
+  }
+`
 
 Tone.Master.volume.value = -10
 
@@ -151,22 +194,27 @@ export const CTCalculator = () => {
   }
   
   return (
-    <div className='container'>
-      <div className='controls'>
-        <div>
-          <input type="range" min="1" max="108" value={melodyMIDI} class="slider" onChange={handleMelodyChange} id="melodySlider"/>
-          Melody: MIDI note {melodyMIDI}
-        </div>
-        <div>
-          <input type="range" min="1" max="108" value={bassMIDI} class="slider" onChange={handleBassChange} id="bassSlider"/>
-          Bass: MIDI note {bassMIDI}
-        </div>
-        <div>
-          <input type="range" min="1" max="20" value={gridSize} class="slider" onChange={handleGridSizeChange} id="gridSizeSlider"/>
-          Grid Size: {gridSize}
-        </div>
-      </div>
-      <CTCGrid gridSize={gridSize} melody={midiToFrequency(melodyMIDI)} bass={midiToFrequency(bassMIDI)}/>
-    </div>
+    <PageFrame>
+        <CSSWrapper>
+            <div className='container'>
+            <div className='controls'>
+                <div>
+                <input type="range" min="1" max="108" value={melodyMIDI} class="slider" onChange={handleMelodyChange} id="melodySlider"/>
+                Melody: MIDI note {melodyMIDI}
+                </div>
+                <div>
+                <input type="range" min="1" max="108" value={bassMIDI} class="slider" onChange={handleBassChange} id="bassSlider"/>
+                Bass: MIDI note {bassMIDI}
+                </div>
+                <div>
+                <input type="range" min="1" max="20" value={gridSize} class="slider" onChange={handleGridSizeChange} id="gridSizeSlider"/>
+                Grid Size: {gridSize}
+                </div>
+            </div>
+            <CTCGrid gridSize={gridSize} melody={midiToFrequency(melodyMIDI)} bass={midiToFrequency(bassMIDI)}/>
+            </div>
+        </CSSWrapper>
+        <Link to="/">Home</Link>
+    </PageFrame>
   )
 }
