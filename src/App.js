@@ -2,11 +2,11 @@ import React from 'react';
 import './App.css';
 // import styled from 'styled-components'
 
-
 import { BrowserRouter as Router, Switch, Route}  from 'react-router-dom';
+import { AudioContextProvider } from './contexts/AudioContext.js';
 
 import WelcomePage from './pages/Welcome.js';
-import CTCalculator from './pages/CTCalculator.js';
+// import CTCalculator from './pages/CTCalculator.js';
 import BlogPage from './pages/BlogPage.js';
 import TuningTool from './pages/TuningTool.js';
 
@@ -24,7 +24,7 @@ const GlobalStyles = createGlobalStyle`
 
 const App = ({ children }) => {
   return (
-    <>
+    <AudioContextProvider>
       <GlobalStyles />
       <Router>
         <Switch>
@@ -46,7 +46,7 @@ const App = ({ children }) => {
         </Switch>
       </Router>
       { children }
-    </>
+    </AudioContextProvider>
   );
 };
 

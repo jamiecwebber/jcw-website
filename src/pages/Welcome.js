@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom'
 
@@ -8,8 +8,7 @@ import coverPhoto from '../images/jamie.jpg';
 import greyTexture from '../images/greyTexture.jpg';
 
 import { BackgroundImage, PageFrame, Name } from '../components/styles'
-
-
+import { AudioContext } from '../contexts/AudioContext'
 
 const WelcomeText = styled.div`
     padding-right: 8%;
@@ -55,7 +54,7 @@ const LinkHolder = styled.div`
 `
 
 const WelcomePage = () => {
-
+    const { audioContextRef } = useContext(AudioContext);
 
     return (
         <React.Fragment>
@@ -63,7 +62,7 @@ const WelcomePage = () => {
             <PageFrame>
                 <BackgroundImage img={greyTexture}>
                     <Name>jamie webber</Name>
-                    
+                    <button onClick={()=>{audioContextRef.current.close()}}>Stop sounds</button>
                     <div>
                         <Photo src={coverPhoto} alt="jcw"></Photo>
                         <div>

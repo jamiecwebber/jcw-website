@@ -1,28 +1,32 @@
-import React, { useEffect, useState, useRef } from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useState, useRef, useContext } from 'react';
+// import styled from 'styled-components';
 import { PageFrame } from '../components/styles'
+import { AudioContext } from '../contexts/AudioContext';
+
 
 const PitchPlayer = () => {
     const [frequency, setFrequency] = useState(220);
     const [volume, setVolume] = useState(50);
 
-    const audioCtx = useRef(new (window.AudioContext || window.webkitAudioContext)());
-    const oscillator = useRef(audioCtx.current.createOscillator());
-    const gainNode = useRef(audioCtx.current.createGain());
+    const { audioContextRef } = useContext(AudioContext);
+
+    // const { audioContextRef } = audioContextRef.current;
+    const oscillator = useRef(audioContextRef.current.createOscillator());
+    const gainNode = useRef(audioContextRef.current.createGain());
 
     useEffect(() => {
         oscillator.current.connect(gainNode.current);
-        gainNode.current.connect(audioCtx.current.destination);
+        gainNode.current.connect(audioContextRef.current.destination);
         oscillator.current.start();
-        const osc = oscillator.current;
-        return () => { osc.stop(); }
+        // const osc = oscillator.current;
+        // return () => { osc.stop(); }
     }, []);
 
     useEffect(() => {
-        gainNode.current.gain.setValueAtTime(volume / 100, audioCtx.current.currentTime);
+        gainNode.current.gain.setValueAtTime(volume / 100, audioContextRef.current.currentTime);
 
         oscillator.current.type = 'triangle';
-        oscillator.current.frequency.setValueAtTime(frequency, audioCtx.current.currentTime); // value in hertz
+        oscillator.current.frequency.setValueAtTime(frequency, audioContextRef.current.currentTime); // value in hertz
 
     }, [frequency, volume]);
 
