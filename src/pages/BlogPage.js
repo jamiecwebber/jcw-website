@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Rectangles from '../components/Rectangles'
+import Header from '../components/Header'
 
 const Page = styled.div`
     margin: 0px 30px;
@@ -48,6 +49,7 @@ const BlogPage = () => {
 
     return (
         <Page>
+            <Header/>
             <Rectangles />
             <Title>Solipsism and Lunacy</Title>
             <Slogan>balancing structure and subjectivity</Slogan> {/*a healthy outlet for male anger */}

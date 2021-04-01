@@ -7,6 +7,7 @@ import { Header } from './components/Header.js';
 import WelcomePage from './pages/Welcome.js';
 import CTCalculator from './pages/CTCalculator.js';
 import BlogPage from './pages/BlogPage.js';
+import TuningTool from './pages/TuningTool.js';
 
 const Title = styled.h1`
   font-size: 1.5em;
@@ -38,6 +39,9 @@ function App() {
             <Route path="/blog">
               {/* <Header /> */}
               <BlogPage />
+            </Route>
+            <Route path="/tuner">
+              <TuningTool />
             </Route>
             <Route path="/inprogress">
               {/* <Header /> */}

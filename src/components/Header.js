@@ -60,4 +60,4 @@ const NavItem = styled.div`
     } 
 `
 
-export { Header };
+export default Header;

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Header from '../components/Header.js'
 
 const CTWindow = styled.div`
     margin: 15px auto;
@@ -10,11 +11,14 @@ const CTWindow = styled.div`
 
 const CTCalculator = () => {
     return (
-        <CTWindow>
-            This page is a work in progress :)
-            {/* controls at top left */}
-            {/* actual display grid */}
-        </CTWindow>
+        <>
+            <Header />
+            <CTWindow>
+                This page is a work in progress :)
+                {/* controls at top left */}
+                {/* actual display grid */}
+            </CTWindow>
+        </>
     )
 }
 

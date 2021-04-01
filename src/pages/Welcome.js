@@ -18,8 +18,6 @@ const Background = styled.div`
     padding: 4vh;
 `
 
-
-
 const Name = styled.h1`
     font-size: max(1.5em, 4vw);
     position: relative;
@@ -85,7 +83,7 @@ const WelcomePage = () => {
                 <div>
                     <Photo src={coverPhoto} alt="jcw"></Photo>
                     <div>
-                        <WelcomeText>Hi, I'm a composer and creative programmer based out of Montreal, Canada. Thanks for visiting my website! I hope that you check out some of the microtonal music I compose or have a look at some of the tools I've programmed to do various musical tasks. I've got a blog that I add to sometimes as well. Enjoy!</WelcomeText>
+                        <WelcomeText>Hi, I'm a composer and creative programmer based out of Montreal, Canada. Thanks for visiting my website! I hope that you check out some of the microtonal music I compose or have a look at some of the tools I've programmed. I've got a blog that I add to sometimes as well. Enjoy!</WelcomeText>
                         <Links>
                             <LinkHolder><Link to="works"><StyledLink colour="chartreuse" background="lightsalmon">my music</StyledLink></Link></LinkHolder>
                             <LinkHolder><Link to="tools"><StyledLink colour="fuchsia" background="chartreuse">cool music tools</StyledLink></Link></LinkHolder>
