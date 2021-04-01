@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Switch, Route}  from 'react-router-dom';
 import { AudioContextProvider } from './contexts/AudioContext.js';
 
 import WelcomePage from './pages/Welcome.js';
-// import CTCalculator from './pages/CTCalculator.js';
+import { CTCalculator } from './pages/CTCalculator.js';
 import BlogPage from './pages/BlogPage.js';
 import TuningTool from './pages/TuningTool.js';
 
@@ -32,7 +32,8 @@ const App = ({ children }) => {
             <Title>Boop doop badaboop doop!</Title>
           </Route>
           <Route path="/tools">
-            <TuningTool />
+            {/* <TuningTool /> */}
+            <CTCalculator/>
           </Route>
           <Route path="/blog">
             <BlogPage />

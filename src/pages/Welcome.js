@@ -59,21 +59,12 @@ const WelcomePage = () => {
     const audioContext = useAudio();
     const audioContextRef = useAudioRef();
 
-    // const resetAudio = () =>
-    // {
-    //     console.log('click!')
-    //     audioContextRef.current.close();
-    //     audioContextRef.current = new window.AudioContext();
-    // }
-
     return (
         <React.Fragment>
             <Rectangles />
             <PageFrame>
                 <BackgroundImage img={greyTexture}>
                     <Name>jamie christopher webber</Name>
-                    {/* <button onClick={()=>{resetAudio()}}>Stop sounds</button> */}
-                    <AudioPanicButton>End Sounds!</AudioPanicButton>
                     <div>
                         <Photo src={coverPhoto} alt="jcw"></Photo>
                         <div>
