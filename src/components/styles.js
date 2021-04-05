@@ -27,7 +27,7 @@ export const PageFrame = styled.div`
 
 export const Name = styled.div`
     padding: 2vw 0vw 2vw 3vw;
-    font-size: max(1.5em, 4vw);
+    font-size: max(1.5em, 3vw);
     color: lightseagreen;
     text-shadow: 7px -7px 5px lightpink;
 `

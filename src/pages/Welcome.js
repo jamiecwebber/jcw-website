@@ -73,11 +73,12 @@ const WelcomePage = () => {
                         <Photo src={coverPhoto} alt="jcw"></Photo>
                         <div>
                             <WelcomeHeader>Hello! Bienvenue!</WelcomeHeader>
-                            <WelcomeText>Welcome to my website. I'm a composer of microtonal music, I do creative programming (mostly audio stuff) and I have a blog called Solipsism and Lunacy where I write about binaries, from all sorts of perspectives. Thanks for stopping by and I hope you'll have a look around!</WelcomeText>
+                            <WelcomeText>Welcome to my website. I'm a composer of microtonal music, I do creative programming and I have a blog called Solipsism and Lunacy where I write about binaries, and about the neuroscience of artistry. Thanks for stopping by and I hope you'll have a look around!</WelcomeText>
                             <Links>
-                                <LinkHolder><Link to="works"><StyledLink colour="chartreuse" background="lightsalmon">my music</StyledLink></Link></LinkHolder>
-                                <LinkHolder><Link to="tools"><StyledLink colour="fuchsia" background="chartreuse">cool music tools</StyledLink></Link></LinkHolder>
-                                <LinkHolder><Link to="blog"><StyledLink colour="salmon" background="aqua">my blog</StyledLink></Link></LinkHolder>
+                                <LinkHolder><Link to="bio"><StyledLink colour="crimson" background="gold">bio</StyledLink></Link></LinkHolder>
+                                <LinkHolder><Link to="works"><StyledLink colour="chartreuse" background="lightsalmon">music</StyledLink></Link></LinkHolder>
+                                <LinkHolder><Link to="tools"><StyledLink colour="fuchsia" background="chartreuse">tools</StyledLink></Link></LinkHolder>
+                                <LinkHolder><Link to="blog"><StyledLink colour="salmon" background="aqua">blog</StyledLink></Link></LinkHolder>
                             </Links>
                         </div>
                     </div>
