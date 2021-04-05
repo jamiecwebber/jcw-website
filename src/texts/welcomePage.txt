@@ -1,0 +1,4 @@
+Hello! [Bienvenu!] << Bienvenue sets it to French
+
+Welcome to my website. I'm a composer of microtonal music, I do creative programming (mostly audio stuff) and I have a blog called Solipsism and Lunacy where I write about neuroscience, music, programming, politics and society, all sorts of topics. Thanks for stopping by and I hope you'll have a look around!
+

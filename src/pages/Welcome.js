@@ -12,7 +12,11 @@ import { useAudio, useAudioRef, AudioPanicButton } from '../contexts/AudioContex
 
 const WelcomeText = styled.div`
     padding-right: 8%;
-    font-size: 1.5em;
+    font-size: 1.2em;
+`
+
+const WelcomeHeader = styled.div`
+    font-size: 1.8em;
 `
 
 const Links = styled.div`
@@ -64,11 +68,12 @@ const WelcomePage = () => {
             <Rectangles />
             <PageFrame>
                 <BackgroundImage img={greyTexture}>
-                    <Name>jamie christopher webber</Name>
+                    <Name>jamie webber - composer & audio programmer</Name>
                     <div>
                         <Photo src={coverPhoto} alt="jcw"></Photo>
                         <div>
-                            <WelcomeText>Hi, I'm a composer and creative programmer based out of Montreal, Canada. Thanks for visiting my website! I hope that you check out some of the microtonal music I compose or have a look at some of the tools I've programmed. I've got a blog that I add to sometimes as well. Enjoy!</WelcomeText>
+                            <WelcomeHeader>Hello! Bienvenue!</WelcomeHeader>
+                            <WelcomeText>Welcome to my website. I'm a composer of microtonal music, I do creative programming (mostly audio stuff) and I have a blog called Solipsism and Lunacy where I write about binaries, from all sorts of perspectives. Thanks for stopping by and I hope you'll have a look around!</WelcomeText>
                             <Links>
                                 <LinkHolder><Link to="works"><StyledLink colour="chartreuse" background="lightsalmon">my music</StyledLink></Link></LinkHolder>
                                 <LinkHolder><Link to="tools"><StyledLink colour="fuchsia" background="chartreuse">cool music tools</StyledLink></Link></LinkHolder>
