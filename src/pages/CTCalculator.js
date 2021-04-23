@@ -23,7 +23,6 @@ input {
 }
 `  
 
-
 Tone.Master.volume.value = -10
 
 let frequencyToMidicents = (frequency) => {
@@ -194,7 +193,8 @@ const CTCGrid = ({gridSize, melody, bass}) => {
 export const CTCalculator = () => {
   const [melodyMIDI, setMelodyMIDI] = useState(52);
   const [bassMIDI, setBassMIDI] = useState(47);
-  const [gridSize, setGridSize] = useState(9);
+  const [size, setSize] = useState(9);
+  const [view, setView] = useState('grid');
   
   const handleMelodyChange = (event) => {
     setMelodyMIDI(event.target.value);
@@ -204,8 +204,12 @@ export const CTCalculator = () => {
     setBassMIDI(event.target.value);
   }
   
-  const handleGridSizeChange = (event) => {
-    setGridSize(event.target.value);
+  const handleSizeChange = (event) => {
+    setSize(event.target.value);
+  }
+
+  const toggleView = () => {
+      view === 'grid' ? setView('staff') : setView('grid');
   }
   
   return (
@@ -214,19 +218,23 @@ export const CTCalculator = () => {
             <div className='container'>
                 <div className='controls'>
                     <div>
-                    <input type="range" min="1" max="108" value={melodyMIDI} class="slider" onChange={handleMelodyChange} id="melodySlider"/>
-                    Melody: MIDI note {melodyMIDI}
+                        <input type="range" min="1" max="108" value={melodyMIDI} class="slider" onChange={handleMelodyChange} id="melodySlider"/>
+                        Melody: MIDI note {melodyMIDI}
                     </div>
                     <div>
-                    <input type="range" min="1" max="108" value={bassMIDI} class="slider" onChange={handleBassChange} id="bassSlider"/>
-                    Bass: MIDI note {bassMIDI}
+                        <input type="range" min="1" max="108" value={bassMIDI} class="slider" onChange={handleBassChange} id="bassSlider"/>
+                        Bass: MIDI note {bassMIDI}
                     </div>
                     <div>
-                    <input type="range" min="1" max="20" value={gridSize} class="slider" onChange={handleGridSizeChange} id="gridSizeSlider"/>
-                    Grid Size: {gridSize}
+                        <input type="range" min="1" max="20" value={size} class="slider" onChange={handleSizeChange} id="gridSizeSlider"/>
+                        Grid Size: {size}
                     </div>
+                      <button onClick={toggleView}>TOGGLE VIEW {view}</button>
                 </div>
-                <CTCGrid gridSize={gridSize} melody={midiToFrequency(melodyMIDI)} bass={midiToFrequency(bassMIDI)}/>
+                {view === 'grid' ?
+                      <CTCGrid gridSize={size} melody={midiToFrequency(melodyMIDI)} bass={midiToFrequency(bassMIDI)} /> :
+                      <div> STAFF </div>
+                }
             </div>
         </CSSWrapper>
         <Link to="/">Home</Link>
