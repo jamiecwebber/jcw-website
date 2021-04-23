@@ -32,13 +32,13 @@ const App = ({ children }) => {
             <Title>Boop doop badaboop doop!</Title>
           </Route>
           <Route path="/tools">
-            {/* <TuningTool /> */}
+           {/* <TuningTool />*/}
             <CTCalculator/>
           </Route>
           <Route path="/blog">
             <BlogPage />
           </Route>
-          <Route path="/contact">
+          <Route path="/bio">
             <Title>Reach Me Here</Title>
           </Route>
           <Route path="/">

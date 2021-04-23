@@ -5,65 +5,24 @@ import { PageFrame } from '../components/styles';
 import { Link } from 'react-router-dom';
 import { useAudio, AudioPanicButton } from '../contexts/AudioContext'
 
+// THIS ENTIRE PAGE CAN BE REFACTORED, JUST TRYING TO MOVE THINGS AHEAD FIRST
 
 const CSSWrapper = styled.div`
 .container {
     display: grid;
     grid-template-columns: 1fr 2fr;
-  }
+}
   
-  .controls {
+.controls {
     margin: 1rem;
     padding: 3rem;
-  }
+}
   
-  input {
+input {
     margin: 3px;
-  }
-  
-  .chime {
-    margin: 2px;
-    border: 1px solid gray;
-    border-radius: 4px;
-    height: 4rem;
-    width: 4rem;
-  }
-  
-  .noteContainer {
-    display: grid;
-    justify-items: center;
-    align-items: center;
-  }
-  .frequency {
-    grid-column: 1 / 3;
-    grid-row: 1;
-  }
-  .note {
-    grid-column: 1;
-    grid-row: 2 / 4;
-    font-size: 1.6em;
-    justify-self: end;
-  }
-  .cents {
-    grid-column: 2;
-    grid-row: 2;
-  }
-  .octave {
-    grid-column: 2;
-    grid-row: 3;
-    font-size: 1.2em;
-  }
-  
-  .gridRow {
-    display: inline-block;
-  /*   grid-template-rows = 1fr;
-    grid-template-colums = repeat(8, 4rem);
-    grid-auto-flow: column; */
-    
-    height: min-content;
-    width: min-content;
-  }
-`
+}
+`  
+
 
 Tone.Master.volume.value = -10
 
@@ -78,7 +37,57 @@ let midiToFrequency = (midi) => {
   return Math.pow(2,((midi-69)/12)) * 440;
 }
 
-const Note = ({frequency}) => {
+// GRID DISPLAY
+
+const CTCGridCSS = styled.div`
+    display: grid;
+
+    .chime {
+        margin: 2px;
+        border: 1px solid gray;
+        border-radius: 4px;
+        height: 4rem;
+        width: 4rem;
+    }
+  
+    .gridRow {
+        display: inline-block;
+        grid-template-rows = 1fr;
+        grid-template-colums = repeat(8, 4rem);
+        grid-auto-flow: column;
+        height: min-content;
+        width: min-content;
+    }
+`
+
+const NoteContainer = styled.div`
+  
+    display: grid;
+    justify-items: center;
+    align-items: center;
+
+    .frequency {
+        grid-column: 1 / 3;
+        grid-row: 1;
+    }
+    .note {
+        grid-column: 1;
+        grid-row: 2 / 4;
+        font-size: 1.6em;
+        justify-self: end;
+    }
+    .cents {
+        grid-column: 2;
+        grid-row: 2;
+    }
+    .octave {
+        grid-column: 2;
+        grid-row: 3;
+        font-size: 1.2em;
+    }
+`
+
+const GridNote = ({frequency}) => {
   let midicents = frequencyToMidicents(frequency);
   
   let cents = Math.round(midicents % 100);
@@ -90,21 +99,23 @@ const Note = ({frequency}) => {
   let note = notes[semitone % 12];
   
   return (
-    <div className='noteContainer'>
+    <NoteContainer>
       <div className='frequency'>{Math.floor(frequency)}</div>
       <div className='note'>{note}</div>
       <div className='cents'>
         {cents >= 0 ? ' +' : ' -'}{Math.abs(cents)}
       </div>
       <div className='octave'>{octave}</div>
-    </div>
+    </NoteContainer>
   )
 }
 
-const Chime = ({frequency}) => {
+const GridChime = ({frequency}) => {
 
     const [synth, setSynth] = useState();
     const [synthFrequency, setSynthFrequency] = useState(frequency);
+
+    // these parts can be refactored out so both GridChime and StaffChime use the same synth (DRY)
 
     useEffect(() => {
       const newSynth = new Tone.Synth().toMaster();
@@ -134,7 +145,7 @@ const Chime = ({frequency}) => {
     } else {
       return (
         <div className='chime' onClick={onClick}>
-          <Note frequency={frequency}/>
+          <GridNote frequency={frequency}/>
         </div>
       )
     }
@@ -157,24 +168,28 @@ const CTCGrid = ({gridSize, melody, bass}) => {
   },[gridSize]);
   
   return (
-    <div className='CTCGrid'>
-       { 
-      gridRows.map((r) => {
-        return (
-          <div className='gridRow'>
-            {gridColumns.map((c) => {
-              return(
-                  //<div>{r} {c}</div>
-                  <Chime frequency={(gridSize-c-1)*melody + r*bass}/>
-                  )
-            })}
-          </div>
-        )
-      })
-      }
-    </div>
+      <CTCGridCSS>
+        <div className='CTCGrid'>
+           { 
+          gridRows.map((r) => {
+            return (
+              <div className='gridRow'>
+                {gridColumns.map((c) => {
+                  return(
+                      <GridChime frequency={(gridSize-c-1)*melody + r*bass}/>
+                      )
+                })}
+              </div>
+            )
+          })
+          }
+        </div>
+      </CTCGridCSS>
   )
 }
+
+
+// CONTROLS AND FULL PAGE
 
 export const CTCalculator = () => {
   const [melodyMIDI, setMelodyMIDI] = useState(52);
@@ -197,21 +212,21 @@ export const CTCalculator = () => {
     <PageFrame>
         <CSSWrapper>
             <div className='container'>
-            <div className='controls'>
-                <div>
-                <input type="range" min="1" max="108" value={melodyMIDI} class="slider" onChange={handleMelodyChange} id="melodySlider"/>
-                Melody: MIDI note {melodyMIDI}
+                <div className='controls'>
+                    <div>
+                    <input type="range" min="1" max="108" value={melodyMIDI} class="slider" onChange={handleMelodyChange} id="melodySlider"/>
+                    Melody: MIDI note {melodyMIDI}
+                    </div>
+                    <div>
+                    <input type="range" min="1" max="108" value={bassMIDI} class="slider" onChange={handleBassChange} id="bassSlider"/>
+                    Bass: MIDI note {bassMIDI}
+                    </div>
+                    <div>
+                    <input type="range" min="1" max="20" value={gridSize} class="slider" onChange={handleGridSizeChange} id="gridSizeSlider"/>
+                    Grid Size: {gridSize}
+                    </div>
                 </div>
-                <div>
-                <input type="range" min="1" max="108" value={bassMIDI} class="slider" onChange={handleBassChange} id="bassSlider"/>
-                Bass: MIDI note {bassMIDI}
-                </div>
-                <div>
-                <input type="range" min="1" max="20" value={gridSize} class="slider" onChange={handleGridSizeChange} id="gridSizeSlider"/>
-                Grid Size: {gridSize}
-                </div>
-            </div>
-            <CTCGrid gridSize={gridSize} melody={midiToFrequency(melodyMIDI)} bass={midiToFrequency(bassMIDI)}/>
+                <CTCGrid gridSize={gridSize} melody={midiToFrequency(melodyMIDI)} bass={midiToFrequency(bassMIDI)}/>
             </div>
         </CSSWrapper>
         <Link to="/">Home</Link>

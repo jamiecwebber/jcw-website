@@ -70,10 +70,11 @@ const WelcomePage = () => {
                 <BackgroundImage img={greyTexture}>
                     <Name>jamie webber - composer & audio programmer</Name>
                     <div>
-                        <Photo src={coverPhoto} alt="jcw"></Photo>
+                        {//<Photo src={coverPhoto} alt="jcw"></Photo>
+                        }
                         <div>
                             <WelcomeHeader>Hello! Bienvenue!</WelcomeHeader>
-                            <WelcomeText>Welcome to my website. I'm a composer of microtonal music, I do creative programming and I have a blog called Solipsism and Lunacy where I write about binaries, and about the neuroscience of artistry. Thanks for stopping by and I hope you'll have a look around!</WelcomeText>
+                            <WelcomeText>Welcome to my website. I'm a composer of microtonal music, I do creative programming and I have a blog called Solipsism and Lunacy where I write about binaries, about society, art, and about the neuroscience of creativity. Thanks for stopping by and I hope you'll have a look around!</WelcomeText>
                             <Links>
                                 <LinkHolder><Link to="bio"><StyledLink colour="crimson" background="gold">bio</StyledLink></Link></LinkHolder>
                                 <LinkHolder><Link to="works"><StyledLink colour="chartreuse" background="lightsalmon">music</StyledLink></Link></LinkHolder>
