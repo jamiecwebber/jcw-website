@@ -68,6 +68,7 @@ const NoteContainer = styled.div`
     .frequency {
         grid-column: 1 / 3;
         grid-row: 1;
+        font-size: 0.8em;
     }
     .note {
         grid-column: 1;
@@ -95,11 +96,13 @@ const GridNote = ({frequency}) => {
   let semitone = Math.round(midicents / 100);
   let octave = Math.floor(semitone/12) - 1;
   let notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
-  let note = notes[semitone % 12];
+    let note = notes[semitone % 12];
+    let bend = cents * 81.92 + 8192;
+
   
   return (
     <NoteContainer>
-      <div className='frequency'>{Math.floor(frequency)}</div>
+      <div className='frequency'>{Math.floor(frequency)}/{Math.round(bend)}</div>
       <div className='note'>{note}</div>
       <div className='cents'>
         {cents >= 0 ? ' +' : ' -'}{Math.abs(cents)}
